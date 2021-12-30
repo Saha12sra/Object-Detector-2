@@ -1,0 +1,70 @@
+body{
+
+text-align: center;
+}
+
+#home_page{
+
+    height: 656px;
+    background-image: url('background_detector.jpeg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.90;
+}
+
+.header_main{
+
+    font-size: 55px;
+    color: #e6fdff;
+    font-family: 'Pridi', serif;
+    padding-top: 120px;
+    padding-bottom: 20px;
+}
+
+.options{
+
+    height: 36px;
+    width: 330px;
+    border-radius: 25px;
+    color: #196970;
+    background-color: #e6fdff;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+#compho{
+
+    height: 656px;
+    background-image: url('compho_background.jpeg');
+    background-size: cover;
+    background-position: center;
+  
+}
+
+#status
+{
+font-size: 18px;
+margin-left: 200px;
+}
+
+canvas{
+    box-shadow: 10px 10px 10px gray;
+    border-radius: 10px;
+}
+
+.header{
+
+    font-size: 55px;
+    color: #e6fdff;
+ font-family: 'Pridi', serif;
+ margin-left: 200px;
+ 
+}   
+
+.back_button{
+
+    margin-top: 440px;
+    width: 100px;
+    margin-left: 200px;
+
+}
