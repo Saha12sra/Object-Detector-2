@@ -22,7 +22,7 @@
 
     <p class="header">Object Detector</p>
 
-    <button class="status btn btn-success">Status: </button>
+    <button id="status" class="btn btn-success">Status: </button>
     <br><br>
     <a href="index.html" class="btn btn-info back_button">BACK</a>
 
@@ -31,6 +31,7 @@
 
     <script>
         img = "";
+        status="";
 
         function preload() {
             img = loadImage("fruit_bowl.jpeg");
@@ -41,6 +42,23 @@
 
             canvas = createCanvas(640, 420);
             canvas.position(500, 135);
+            objectDetector = ml5.objectDetector('cocossd', modelLoaded);
+            document.getElementById("status").innerHTML = "Status: Detecting Objects";
+        }
+
+        function modelLoaded() {
+
+            console.log("model loaded");
+            status = true;
+            objectDetector.detect(img, gotResult);
+
+        }
+
+        function gotResult(error, results) {
+            if (error) {
+                console.error(error);
+            }
+            console.log(results);
         }
 
         function draw() {
