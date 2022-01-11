@@ -22,6 +22,7 @@
     <p class="header">Object Detector</p>
 
     <button id="status" class="btn btn-success">Status: </button>
+    <h3 id="number_of_objects" class="btn btn-warning"></h3>
     <br><br>
     <a href="index.html" class="btn btn-info back_button">BACK</a>
 
@@ -33,6 +34,7 @@
 
     img = "";
     status="";
+    objects=[];
 
     function preload() {
         img = loadImage("bookshelf.jpeg");
@@ -60,14 +62,34 @@
             console.error(error);
         }
         console.log(results);
+        objects = results;
     }
 
     function draw() {
 
-        image(img, 0, 0, 640, 420);
+image(img, 0, 0, 640, 420);
 
+if (status != "") {
+    r = random(255);
+    g = random(255);
+    b = random(255);
 
+    objectDetector.detect(img, gotResult);
+
+    for (i = 0; i < objects.length; i++) {
+
+        document.getElementById("status").innerHTML = "Status: Object Detected";
+        document.getElementById("number_of_objects").innerHTML="Number of Objects detected are: "+objects.length;
+        fill(r,g,b);
+        percent = floor(objects[i].confidence * 100);
+        text(objects[i].label + " " + percent + "%", objects[i].x, objects[i].y);
+        noFill();
+        stroke(r,g,b);
+        rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
     }
+}
+
+}
 </script>
 
 </html>
